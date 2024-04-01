@@ -2,6 +2,7 @@ package com.example.edittext_intents;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -122,9 +123,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void eqClick(View view) {
         // get the number from the eT and clear it
-        strNum = eT.getText().toString();
+
         if(strNum != "")
         {
+            strNum = eT.getText().toString();
             num = Double.parseDouble(strNum);
             eT.getText().clear();
 
@@ -132,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
             if(action != ' ')
             {
                 result = cal(num, result, action);
+            }
+            else
+            {
+                result = num;
             }
 
             // show the result on the eT
@@ -144,7 +150,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void creditsClick(View view) {
+        Intent si = new Intent(this,CreditsActivity.class);
+        si.putExtra("result", result);
+        startActivity(si);
     }
+
 
     public double cal(double newNum,double oldNum, char action) {
         if (action == '+') {
@@ -163,5 +173,6 @@ public class MainActivity extends AppCompatActivity {
             return oldNum / newNum;
         }
     }
+
 }
 
