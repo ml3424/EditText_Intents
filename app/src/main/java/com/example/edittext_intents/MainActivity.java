@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void plusClick(View view) {
         strNum = eT.getText().toString();
-        if(strNum != "")
+        if(!strNum.isEmpty())
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void minosClick(View view) {
         strNum = eT.getText().toString();
-        if(strNum != "")
+        if(!strNum.isEmpty())
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void multiClick(View view) {
         strNum = eT.getText().toString();
-        if(strNum != "")
+        if(!strNum.isEmpty())
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void devClick(View view) {
         strNum = eT.getText().toString();
-        if(strNum != "")
+        if(!strNum.isEmpty())
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
