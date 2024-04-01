@@ -123,10 +123,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void eqClick(View view) {
         // get the number from the eT and clear it
-
+        strNum = eT.getText().toString();
         if(strNum != "")
         {
-            strNum = eT.getText().toString();
             num = Double.parseDouble(strNum);
             eT.getText().clear();
 
