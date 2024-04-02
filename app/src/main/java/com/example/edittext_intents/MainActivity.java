@@ -27,20 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         eT = findViewById(R.id.eT);
-
-        plus = findViewById(R.id.plus);
-        minos = findViewById(R.id.minos);
-        mult = findViewById(R.id.mult);
-        dev = findViewById(R.id.dev);
-        aC = findViewById(R.id.aC);
-        eq = findViewById(R.id.eq);
-        credits = findViewById(R.id.credits);
-
     }
 
     public void plusClick(View view) {
         strNum = eT.getText().toString();
-        if(!strNum.isEmpty())
+        if(checkInput(strNum))
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -60,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void minosClick(View view) {
         strNum = eT.getText().toString();
-        if(!strNum.isEmpty())
+        if(checkInput(strNum))
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -79,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void multiClick(View view) {
         strNum = eT.getText().toString();
-        if(!strNum.isEmpty())
+        if(checkInput(strNum))
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -98,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void devClick(View view) {
         strNum = eT.getText().toString();
-        if(!strNum.isEmpty())
+        if(checkInput(strNum))
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -124,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     public void eqClick(View view) {
         // get the number from the eT and clear it
         strNum = eT.getText().toString();
-        if(strNum != "")
+        if(checkInput(strNum))
         {
             num = Double.parseDouble(strNum);
             eT.getText().clear();
@@ -152,6 +143,30 @@ public class MainActivity extends AppCompatActivity {
         Intent si = new Intent(this,CreditsActivity.class);
         si.putExtra("result", result);
         startActivity(si);
+    }
+
+
+    public boolean checkInput(String input)
+    {
+        if(!input.isEmpty())
+        {
+            if(input.length() == 1)
+            {
+                if(input.charAt(0) >= '0' && input.charAt(0) <= '9')
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 
